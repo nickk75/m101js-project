@@ -293,8 +293,8 @@ function ItemDAO(database) {
         var queryDoc = { _id: itemId };
         database.collection('item')
           .find(queryDoc)
-          .toArray(function(err, db){
-          	callback(db[0]);
+          .next(function(err, item){
+          	callback(item);
           });
     }
 
